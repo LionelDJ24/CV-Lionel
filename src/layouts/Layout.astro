@@ -1,22 +1,393 @@
+---
+// Layout.astro - Version optimisée
+---
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lionel Ndoizine </title>
+    <meta name="description" content="Portfolio de Lionel Ndoizine, étudiant en cybersécurité et réseaux informatiques à l'ESAIP. Découvrez mes projets et compétences." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+      <div class="navbar-container">
+        
+        
+        <nav class="nav-menu" id="nav-menu">
+          <a href="#welcome" class="nav-link">Accueil</a>
+          <a href="#profil" class="nav-link">Profil</a>
+          <a href="#projet-professionnel" class="nav-link">Projet</a>
+          <a href="#qualites" class="nav-link">Qualités</a>
+          <a href="#valeurs" class="nav-link">Valeurs</a>
+          <a href="#education" class="nav-link">Formations</a>
+          <a href="#experience" class="nav-link">Expériences</a>
+          <a href="#skills" class="nav-link">Compétences</a>
+          <a href="#projects" class="nav-link">Projets</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Lionel Ndoizine. Tous droits réservés.</p>
+        <div class="footer-links">
+          <a href="mailto:lionel.ndoizine04@gmail.com" aria-label="Email"></a>
+          <a href="https://www.linkedin.com/in/lionel-ndoizine-b89144329" target="_blank" rel="noopener" aria-label="LinkedIn"></a>
+          <a href="https://github.com/LionelDJ24" target="_blank" rel="noopener" aria-label="GitHub"></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button class="scroll-top" id="scroll-top" aria-label="Retour en haut">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
+
+    <style>
+      /* RESET & BASE */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e0e7ff 100%);
+        color: #1f2937;
+        overflow-x: hidden;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .navbar-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 15px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* LOGO */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      .logo-icon {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      .logo-text {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #1f2937;
+        display: none;
+      }
+
+      @media (min-width: 768px) {
+        .logo-text {
+          display: block;
+        }
+      }
+
+      /* NAV MENU */
+      .nav-menu {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .nav-link {
+        padding: 10px 16px;
+        text-decoration: none;
+        color: #4b5563;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link::before {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #667eea;
+        background: rgba(102, 126, 234, 0.1);
+      }
+
+      .nav-link:hover::before {
+        width: 70%;
+      }
+
+      /* MENU TOGGLE (Mobile) */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001;
+      }
+
+      .bar {
+        width: 28px;
+        height: 3px;
+        background: #667eea;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      /* MOBILE NAV */
+      @media (max-width: 1024px) {
+        .menu-toggle {
+          display: flex;
+        }
+
+        .nav-menu {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 280px;
+          height: 100vh;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          padding: 100px 30px 30px;
+          gap: 10px;
+          box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+          transition: right 0.4s ease;
+          align-items: stretch;
+        }
+
+        .nav-menu.active {
+          right: 0;
+        }
+
+        .nav-link {
+          padding: 15px 20px;
+          font-size: 1.1rem;
+          text-align: center;
+        }
+      }
+
+      /* MAIN */
+      main {
+        min-height: 100vh;
+      }
+
+      /* FOOTER */
+      .footer {
+        background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
+        color: white;
+        padding: 40px 10%;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .footer-content p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 25px;
+      }
+
+      .footer-links a {
+        font-size: 1.8rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        filter: grayscale(0.3);
+      }
+
+      .footer-links a:hover {
+        transform: translateY(-5px) scale(1.2);
+        filter: grayscale(0);
+      }
+
+      /* SCROLL TO TOP */
+      .scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+      }
+
+      .scroll-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .scroll-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+      }
+
+      @media (max-width: 768px) {
+        .scroll-top {
+          bottom: 20px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+        }
+
+        .footer {
+          padding: 30px 5%;
+        }
+      }
+    </style>
+
+    <script>
+      // NAVBAR SCROLL EFFECT
+      const navbar = document.getElementById('navbar');
+      const scrollTop = document.getElementById('scroll-top');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          navbar?.classList.add('scrolled');
+          scrollTop?.classList.add('visible');
+        } else {
+          navbar?.classList.remove('scrolled');
+          scrollTop?.classList.remove('visible');
+        }
+      });
+
+      // SCROLL TO TOP
+      scrollTop?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // MOBILE MENU TOGGLE
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+
+      menuToggle?.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu?.classList.toggle('active');
+      });
+
+      // CLOSE MENU ON LINK CLICK
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle?.classList.remove('active');
+          navMenu?.classList.remove('active');
+        });
+      });
+
+      // CLOSE MENU ON OUTSIDE CLICK
+      document.addEventListener('click', (e) => {
+        if (!navMenu?.contains(e.target as Node) && !menuToggle?.contains(e.target as Node)) {
+          menuToggle?.classList.remove('active');
+          navMenu?.classList.remove('active');
+        }
+      });
+    </script>
+  </body>
+</html>

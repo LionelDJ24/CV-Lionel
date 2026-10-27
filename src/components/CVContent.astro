@@ -9,8 +9,9 @@
     <div class="profil-grid">
       <div class="profil-text">
         <p>
-          Étudiant en 4e année à l'<strong>ESAIP</strong>, spécialisé en 
-          <span class="highlight">cybersécurité</span> et <span class="highlight">réseaux informatiques</span>.
+          Étudiant en 5e année d'école d'ingénieurs à l'<strong>ESAIP</strong> (Angers), spécialisé en 
+          <span class="highlight">cybersécurité</span> et <span class="highlight">réseaux informatiques</span>,
+          actuellement en Erasmus à l'<strong>Universidad Politécnica de Madrid</strong>.
         </p>
         <p>
           Curieux, méthodique et créatif, je cherche à comprendre et sécuriser les systèmes modernes 
@@ -23,117 +24,184 @@
     </div>
   </div>
 
-  <!-- MON PROJET PROFESSIONNEL -->
-  <div class="section" id="projet-professionnel">
-    <h2>Mon projet professionnel</h2>
-    
-    <div class="projet-intro">
-      <p>
-        Passionné par la création et l'innovation technologique, je souhaite intégrer le 
-        <strong>service informatique et cybersécurité d'une entreprise</strong>, contribuant à des 
-        projets stratégiques tout en assurant la sécurité et l'efficacité des systèmes.
-      </p>
-    </div>
+  <!-- PROJETS -->
+  <div class="section" id="projects">
+    <h2>Projets</h2>
+    <div class="projects-grid">
 
-    <div class="projet-grid">
-      <div class="projet-card">
-        <h3> Mon objectif à court terme</h3>
-        <p>
-          Acquérir une expérience solide en entreprise (2-3 ans) pour maîtriser les technologies 
-          de cybersécurité et réseaux en situation réelle. Développer mes compétences linguistiques 
-          (anglais et espagnol) pour travailler dans un contexte international.
-        </p>
-      </div>
-      
-      <div class="projet-card">
-        <h3> Ma vision : mobilité & liberté</h3>
-        <p>
-          Je suis particulièrement intéressé par des postes où je peux <strong>travailler dans 
-          différents lieux ou à l'international</strong>, afin de découvrir de nouveaux environnements, 
-          relever des défis variés et enrichir ma vision du monde.
-        </p>
-      </div>
-    </div>
+      <article class="project-card">
+        <div class="project-head">
+          <span class="project-icon">📡</span>
+          <div>
+            <h3>POC IoT « smart city » – Angers Métropole</h3>
+            <span class="project-meta">ESAIP · équipe de 5</span>
+          </div>
+        </div>
+        <p class="project-context">Preuve de concept pour superviser des capteurs urbains (qualité de l'air, trafic, déchets), avec un fort accent sur la sécurité et la résilience.</p>
+        <ul class="project-points">
+          <li>Simulation de 3 capteurs (air, trafic, déchets) en Python avec paho-mqtt</li>
+          <li>Chaîne de données MQTT (Mosquitto) → Node-RED → InfluxDB → Grafana</li>
+          <li>Détection automatique des dépassements de seuil dans Node-RED</li>
+          <li>Gestion des identités avec Keycloak : 3 rôles, double authentification (TOTP)</li>
+          <li>Reprise après coupure (« store and forward ») en conservant l'horodatage d'origine</li>
+          <li>Orchestration des services avec Docker Compose</li>
+        </ul>
+        <p class="project-result"><strong>Difficulté résolue :</strong> l'écriture Node-RED → InfluxDB perdait sa configuration à chaque redémarrage ; remplacement du plugin par une requête HTTP native.</p>
+        <p class="project-result"><strong>Résultat :</strong> POC fonctionnel, 4 scénarios de démonstration validés, tableaux de bord Grafana en temps réel avec seuils d'alerte.</p>
+        <div class="project-tags">
+          <span>Python</span><span>MQTT</span><span>Node-RED</span><span>InfluxDB</span><span>Grafana</span><span>Keycloak</span><span>Docker Compose</span>
+        </div>
+        <a class="project-link" href="https://github.com/LionelDJ24/poc-iot-angers" target="_blank" rel="noopener">Voir le code sur GitHub →</a>
+      </article>
 
-    <div class="vision-box">
-      <h3> Dans 5 ans</h3>
-      <p>
-        Je me vois en activité <strong>indépendante ou en mobilité internationale</strong>, 
-        travaillant sur des projets diversifiés en cybersécurité et développement, avec la 
-        liberté de choisir mes missions et mes lieux de travail. L'objectif : allier expertise 
-        technique, découverte de nouveaux horizons et développement de multiples centres d'intérêt 
-        (sport, voyages, projets personnels).
-      </p>
+      <article class="project-card">
+        <div class="project-head">
+          <span class="project-icon">☁️</span>
+          <div>
+            <h3>Plateforme cloud-native sur Azure (AKS)</h3>
+            <span class="project-meta">Cours Cloud Computing & DevOps · projet de groupe</span>
+          </div>
+        </div>
+        <p class="project-context">Déploiement d'une plateforme de diffusion de contenu statique sur un cluster Kubernetes managé.</p>
+        <ul class="project-points">
+          <li>Conteneurisation de l'application avec Docker</li>
+          <li>Pipeline CI/CD de build et de déploiement automatisés</li>
+          <li>Déploiement sur Azure Kubernetes Service, gestion des secrets</li>
+          <li>Résolution des erreurs de pipeline, d'image et de secrets jusqu'à la mise en ligne</li>
+        </ul>
+        <p class="project-result"><strong>Résultat :</strong> plateforme déployée et fonctionnelle sur Azure.</p>
+        <div class="project-tags">
+          <span>Azure AKS</span><span>Kubernetes</span><span>Docker</span><span>CI/CD</span>
+        </div>
+        <a class="project-link" href="https://github.com/LionelDJ24/Plateforme-de-diffusion-de-contenu-statique-cloud-native" target="_blank" rel="noopener">Voir le code sur GitHub →</a>
+      </article>
+
     </div>
+    <p class="projects-more">Également : gestion des utilisateurs, des droits et des politiques de sécurité sous Windows Server.</p>
   </div>
 
-  <!-- QUALITÉS -->
-  <div class="section" id="qualites">
-    <h2>Mes qualités</h2>
-    <div class="qualities-grid">
-      <div class="quality-card">
-        <div class="quality-icon">🎯</div>
-        <h3>Autonomie</h3>
-        <p>Capable de gérer mes tâches de manière indépendante tout en respectant les objectifs du groupe.</p>
+  <!-- EXPÉRIENCES -->
+  <div class="section" id="experience">
+    <h2>Expériences professionnelles</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="year">Juil. – Août 2026</span>
+        <div class="timeline-content">
+          <h3>AXIPHARM – Préparateur de commandes</h3>
+          <p>Grossiste-répartiteur pharmaceutique (Saint-Jean-de-Braye). Préparation de commandes guidée par scanner, réception des livraisons avec double contrôle qualité, gestion des non-conformités, préparation de commandes export. Respect strict des procédures de traçabilité, sous contrainte de livraison en 24 h.</p>
+        </div>
       </div>
-      <div class="quality-card">
-        <div class="quality-icon">⚖️</div>
-        <h3>Éthique</h3>
-        <p>Privilégie toujours le respect, la tolérance et l'équité dans toutes mes actions.</p>
+      <div class="timeline-item">
+        <span class="year">Janvier 2025</span>
+        <div class="timeline-content">
+          <h3>Zefal – Manutentionnaire</h3>
+          <p>Préparation de commandes, tri et organisation logistique avec rigueur.</p>
+        </div>
       </div>
-      <div class="quality-card">
-        <div class="quality-icon">🤝</div>
-        <h3>Engagement humanitaire</h3>
-        <p>Investi dans des actions collectives pour le bien-être d'autrui, avec empathie et esprit d'équipe.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- VALEURS -->
-  <div class="section" id="valeurs">
-    <h2>Mes valeurs</h2>
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-icon">🌍</div>
-        <h3>Environnement</h3>
-        <p>Conviction profonde que la préservation de notre planète doit guider nos choix technologiques et professionnels.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">🔐</div>
-        <h3>Protection des données</h3>
-        <p>Éthique du respect de la vie privée : les données personnelles ne sont pas des marchandises, mais un droit fondamental à protéger.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">🗺️</div>
-        <h3>Liberté & Mobilité</h3>
-        <p>Aspiration à travailler sans frontières géographiques, à découvrir continuellement de nouveaux horizons et à garder ma liberté d'organisation.</p>
+      <div class="timeline-item">
+        <span class="year">Été 2023 & 2024</span>
+        <div class="timeline-content">
+          <h3>Suntory – Opérateur logistique</h3>
+          <p>Contrôle qualité, respect des normes de sécurité et gestion des flux.</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ANTI-VALEURS -->
-  <div class="section" id="anti-valeurs">
-    <h2>Ce que je rejette</h2>
-    <div class="anti-values-grid">
-      <div class="anti-value-card">
-        <div class="anti-value-icon"></div>
-        <h3>Manque d'empathie</h3>
-        <p>L'indifférence face aux difficultés d'autrui et l'absence de considération pour l'impact de ses actions sur les autres.</p>
+  <!-- COMPÉTENCES TECHNIQUES -->
+  <div class="section" id="skills">
+    <h2>Compétences techniques</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3>🚀 Infrastructure & déploiement</h3>
+        <ul>
+          <li>Docker, Docker Compose</li>
+          <li>Kubernetes (Azure AKS)</li>
+          <li>Pipelines CI/CD</li>
+          <li>Windows Server, Active Directory</li>
+          <li>Git / GitHub</li>
+        </ul>
       </div>
-      <div class="anti-value-card">
-        <div class="anti-value-icon"></div>
-        <h3>Condescendance</h3>
-        <p>Les attitudes hautaines et méprisantes qui créent des barrières plutôt que des ponts entre les personnes.</p>
+      <div class="skill-category">
+        <h3>🧩 Réseaux</h3>
+        <ul>
+          <li>VLAN, DNS, DHCP</li>
+          <li>Configuration routeurs & switches</li>
+          <li>Cisco Packet Tracer</li>
+          <li>Wireshark</li>
+        </ul>
       </div>
-      <div class="anti-value-card">
-        <div class="anti-value-icon"></div>
-        <h3>Environnements toxiques</h3>
-        <p>Entreprises qui nuisent intentionnellement à autrui ou cultivent des cultures de travail destructrices.</p>
+      <div class="skill-category">
+        <h3>📊 Supervision & données</h3>
+        <ul>
+          <li>MQTT</li>
+          <li>InfluxDB, Grafana</li>
+          <li>SQL</li>
+        </ul>
       </div>
-      <div class="anti-value-card">
-        <div class="anti-value-icon"></div>
-        <h3>Injustice & Hypocrisie</h3>
-        <p>Les doubles standards, le manque de cohérence entre discours et actions, et les traitements inéquitables.</p>
+      <div class="skill-category">
+        <h3>🔐 Sécurité & identités</h3>
+        <ul>
+          <li>Keycloak : rôles, double authentification</li>
+          <li>Droits et stratégies de groupe (Windows Server)</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>💻 Langages</h3>
+        <ul>
+          <li>Python</li>
+          <li>Java</li>
+          <li>Bash</li>
+          <li>HTML / CSS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPÉTENCES COMPORTEMENTALES & TRANSVERSALES -->
+  <div class="section" id="soft-skills">
+    <h2>Compétences comportementales & transversales</h2>
+    <div class="soft-skills-grid">
+      <div class="soft-skill-card">
+        
+        <h3>Communication digitale</h3>
+        <p>Gestion de réseaux sociaux (Instagram PESF), création de contenus engageants, communication événementielle et campagnes de sensibilisation.</p>
+        <span class="skill-context">Acquis via : PESF</span>
+      </div>
+
+      <div class="soft-skill-card">
+        
+        <h3>Gestion de projet</h3>
+        <p>Organisation du séjour humanitaire au Bénin (juin 2026) : coordination avec CIDEV, recrutement des participants, collecte de fonds, planification logistique.</p>
+        <span class="skill-context">Acquis via : Projet Bénin 2026</span>
+      </div>
+
+      <div class="soft-skill-card">
+        
+        <h3>Travail en équipe</h3>
+        <p>Projets de groupe à l'ESAIP, collaboration au sein du PESF et avec un partenaire international (CIDEV), travail en équipe en entrepôt chez AXIPHARM.</p>
+        <span class="skill-context">Acquis via : ESAIP, PESF, AXIPHARM</span>
+      </div>
+
+      <div class="soft-skill-card">
+        
+        <h3>Adaptabilité culturelle</h3>
+        <p>Deux semestres Erasmus, à Budapest puis à Madrid : intégration dans des universités étrangères et adaptation rapide à de nouveaux environnements.</p>
+        <span class="skill-context">Acquis via : Erasmus Hongrie et Espagne</span>
+      </div>
+
+      <div class="soft-skill-card">
+        
+        <h3>Autonomie & initiative</h3>
+        <p>Prise d'initiatives dans mes projets personnels et associatifs, gestion autonome de mes tâches, capacité à apprendre en autodidacte.</p>
+        <span class="skill-context">Acquis via : Projets personnels, PESF</span>
+      </div>
+
+      <div class="soft-skill-card">
+        
+        <h3>Multilinguisme</h3>
+        <p>Français (langue maternelle), anglais C1 (TOEIC 875/990), espagnol B1 en progression grâce à l'immersion à Madrid.</p>
+        <span class="skill-context">Acquis via : TOEIC, Erasmus Madrid</span>
       </div>
     </div>
   </div>
@@ -147,6 +215,13 @@
         <div class="timeline-content">
           <h3>ESAIP (Angers)</h3>
           <p>Ingénierie informatique, Cybersécurité & Réseaux</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="year">Sept. 2026 – Janv. 2027</span>
+        <div class="timeline-content">
+          <h3>Universidad Politécnica de Madrid (Espagne)</h3>
+          <p>Programme Erasmus – Réseaux et services de télécommunication, cybersécurité et protection des données, infrastructures et services cloud</p>
         </div>
       </div>
       <div class="timeline-item">
@@ -173,27 +248,6 @@
     </div>
   </div>
 
-  <!-- EXPÉRIENCES -->
-  <div class="section" id="experience">
-    <h2>Expériences professionnelles</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <span class="year">Janvier 2025</span>
-        <div class="timeline-content">
-          <h3>Zefal – Manutentionnaire</h3>
-          <p>Préparation de commandes, tri et organisation logistique avec rigueur.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <span class="year">Été 2023 & 2024</span>
-        <div class="timeline-content">
-          <h3>Suntory – Opérateur logistique</h3>
-          <p>Contrôle qualité, respect des normes de sécurité et gestion des flux.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ENGAGEMENT ASSOCIATIF -->
   <div class="section" id="engagement">
     <h2>Engagement associatif</h2>
@@ -202,7 +256,7 @@
         <img src="/assets/Logo PESF.png" alt="Logo PESF">
         <div>
           <h3>PESF - Pôle d'Engagement Solidaire et de Formation</h3>
-          <span class="year">Depuis Septembre 2025</span>
+          <span class="year">Sept. 2025 – 2026 · passation en cours</span>
         </div>
       </div>
       
@@ -217,9 +271,9 @@
         </div>
 
         <div class="project-section">
-          <h4>🌍 Projet Humanitaire au Bénin (Juin 2026)</h4>
+          <h4>🌍 Séjour humanitaire au Bénin (juin 2026)</h4>
           <p class="project-description">
-            Organisation d'un séjour humanitaire en partenariat avec l'association <strong>CIDEV</strong>, 
+            Séjour organisé et réalisé en partenariat avec l'association <strong>CIDEV</strong>, 
             axé sur la sensibilisation aux outils numériques et la lutte contre la fracture numérique.
           </p>
           <div class="project-actions">
@@ -237,111 +291,13 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- COMPÉTENCES TECHNIQUES -->
-  <div class="section" id="skills">
-    <h2>Compétences techniques</h2>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <h3>💻 Langages</h3>
-        <ul>
-          <li>Python</li>
-          <li>Java</li>
-          <li>SQL</li>
-          <li>HTML / CSS</li>
-          <li>Bash</li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h3>🧩 Réseaux</h3>
-        <ul>
-          <li>Cisco Packet Tracer</li>
-          <li>VLAN, DNS, DHCP</li>
-          <li>Configuration routeurs & switches</li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h3>🧰 Outils</h3>
-        <ul>
-          <li>Wireshark</li>
-          <li>GitHub / Git</li>
-          <li>VirtualBox</li>
-          <li>VS Code</li>
-          <li>Windows Server</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- COMPÉTENCES COMPORTEMENTALES & TRANSVERSALES -->
-  <div class="section" id="soft-skills">
-    <h2>Compétences comportementales & transversales</h2>
-    <div class="soft-skills-grid">
-      <div class="soft-skill-card">
-        
-        <h3>Communication digitale</h3>
-        <p>Gestion de réseaux sociaux (Instagram PESF), création de contenus engageants, communication événementielle et campagnes de sensibilisation.</p>
-        <span class="skill-context">Acquis via : PESF</span>
-      </div>
-
-      <div class="soft-skill-card">
-        
-        <h3>Gestion de projet</h3>
-        <p>Organisation du séjour humanitaire au Bénin : coordination avec CIDEV, recrutement de participants, collecte de fonds, planification logistique.</p>
-        <span class="skill-context">Acquis via : Projet Bénin 2026</span>
-      </div>
-
-      <div class="soft-skill-card">
-        
-        <h3>Travail en équipe</h3>
-        <p>Collaboration au sein du PESF, projets de groupe à l'ESAIP, coordination avec partenaires internationaux (CIDEV), synergie d'équipe.</p>
-        <span class="skill-context">Acquis via : PESF, ESAIP, Óbuda University</span>
-      </div>
-
-      <div class="soft-skill-card">
-        
-        <h3>Adaptabilité culturelle</h3>
-        <p>Expérience Erasmus à Budapest, découverte de nouveaux environnements, capacité à m'adapter rapidement à des contextes variés.</p>
-        <span class="skill-context">Acquis via : Erasmus Hongrie</span>
-      </div>
-
-      <div class="soft-skill-card">
-        
-        <h3>Autonomie & initiative</h3>
-        <p>Prise d'initiatives dans mes projets personnels et associatifs, gestion autonome de mes tâches, capacité à apprendre en autodidacte.</p>
-        <span class="skill-context">Acquis via : Projets personnels, PESF</span>
-      </div>
-
-      <div class="soft-skill-card">
-        
-        <h3>Multilinguisme</h3>
-        <p>Français (langue maternelle), Anglais (niveau intermédiaire en progression), Espagnol (apprentissage en cours pour mobilité internationale).</p>
-        <span class="skill-context">Objectif : Maîtrise pour travail international</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJETS -->
-  <div class="section" id="projects">
-    <h2>Projets</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-icon">🌐</div>
-        <h3>Site CV personnel</h3>
-        <p>Développement avec Astro et déploiement sur GitHub Pages</p>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">🖥️</div>
-        <h3>Environnement DNS multisite</h3>
-        <p>Configuration BIND9 + Apache2 pour hébergement de plusieurs domaines</p>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">🔐</div>
-        <h3>Sécurisation d'accès</h3>
-        <p>Windows Server : gestion des utilisateurs, droits et politiques de sécurité</p>
+        <div class="role-section">
+          <h4>🤝 Passation 2026-2027</h4>
+          <ul>
+            <li>Recrutement et transmission aux étudiants qui restent à l'école, pour assurer la continuité de l'association</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -869,45 +825,104 @@
   /* PROJECTS GRID */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
   }
 
   .project-card {
+    display: flex;
+    flex-direction: column;
     background: white;
-    padding: 35px;
+    padding: 30px;
     border-radius: 15px;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
-    text-align: center;
+    text-align: left;
     border: 2px solid transparent;
   }
 
   .project-card:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
     border-color: var(--primary-color);
   }
 
-  .project-icon {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    display: inline-block;
-    transition: transform 0.3s ease;
+  .project-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
   }
 
-  .project-card:hover .project-icon {
-    transform: scale(1.2) rotate(-10deg);
+  .project-icon {
+    font-size: 2.2rem;
+    line-height: 1;
   }
 
   .project-card h3 {
     color: var(--primary-color);
-    margin-bottom: 15px;
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+  }
+
+  .project-meta {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 600;
   }
 
   .project-card p {
-    font-size: 1.05rem;
-    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .project-points {
+    padding-left: 20px;
+    margin: 0 0 12px;
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .project-points li {
+    margin-bottom: 4px;
+  }
+
+  .project-result {
+    color: var(--text-dark) !important;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0 18px;
+  }
+
+  .project-tags span {
+    background: rgba(67, 56, 202, 0.08);
+    color: var(--primary-color);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .project-link {
+    margin-top: auto;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .project-link:hover {
+    color: var(--accent-color);
+  }
+
+  .projects-more {
+    margin-top: 25px;
+    font-size: 1rem;
   }
 
   /* CONTACT GRID */

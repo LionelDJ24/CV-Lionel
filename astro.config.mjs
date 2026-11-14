@@ -1,10 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-import react from '@astrojs/react';
-
 // https://astro.build/config
 export default defineConfig({
-  base: './',
-  integrations: [react()]
+  site: 'https://lioneldj24.github.io',
+  base: '/CV-Lionel',
 });

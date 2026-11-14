@@ -1,43 +1,54 @@
 ---
-// Layout.astro - Version optimisée
+// Layout.astro
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+const canonical = Astro.site ? new URL(base, Astro.site).href : Astro.url.href;
+const title = 'Lionel Ndoizine – Cybersécurité & Réseaux';
+const description =
+  "Portfolio de Lionel Ndoizine, étudiant en cybersécurité et réseaux informatiques à l'ESAIP. Découvrez mes projets et compétences.";
 ---
 <!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lionel Ndoizine </title>
-    <meta name="description" content="Portfolio de Lionel Ndoizine, étudiant en cybersécurité et réseaux informatiques à l'ESAIP. Découvrez mes projets et compétences." />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph (aperçu LinkedIn & réseaux sociaux) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('assets/og.jpg', canonical).href} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2EKM6TVR03" is:inline></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2EKM6TVR03');
-    </script>
   </head>
   <body>
     <!-- NAVBAR -->
     <header class="navbar" id="navbar">
       <div class="navbar-container">
-        
-        
-        <nav class="nav-menu" id="nav-menu">
+
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation principale">
           <a href="#welcome" class="nav-link">Accueil</a>
           <a href="#profil" class="nav-link">Profil</a>
-          <a href="#projet-professionnel" class="nav-link">Projet</a>
-          <a href="#qualites" class="nav-link">Qualités</a>
-          <a href="#valeurs" class="nav-link">Valeurs</a>
-          <a href="#education" class="nav-link">Formations</a>
+          <a href="#projects" class="nav-link">Projets</a>
           <a href="#experience" class="nav-link">Expériences</a>
           <a href="#skills" class="nav-link">Compétences</a>
-          <a href="#projects" class="nav-link">Projets</a>
+          <a href="#soft-skills" class="nav-link">Savoir-être</a>
+          <a href="#education" class="nav-link">Formations</a>
+          <a href="#engagement" class="nav-link">Engagement</a>
           <a href="#contact" class="nav-link">Contact</a>
         </nav>
 
-        <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -53,11 +64,23 @@
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
-        <p>&copy; 2025 Lionel Ndoizine. Tous droits réservés.</p>
+        <p>&copy; {new Date().getFullYear()} Lionel Ndoizine. Tous droits réservés.</p>
         <div class="footer-links">
-          <a href="mailto:lionel.ndoizine04@gmail.com" aria-label="Email"></a>
-          <a href="https://www.linkedin.com/in/lionel-ndoizine-b89144329" target="_blank" rel="noopener" aria-label="LinkedIn"></a>
-          <a href="https://github.com/LionelDJ24" target="_blank" rel="noopener" aria-label="GitHub"></a>
+          <a href="mailto:lionel.ndoizine04@gmail.com" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18v-9.5l8 6.5 8-6.5V18H4z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/lionel-ndoizine-b89144329" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.98 3.5a2.5 2.5 0 11-.001 5.001A2.5 2.5 0 014.98 3.5zM2 9h6v12H2V9zm9.5 0h5.5v1.68h.08c.77-1.46 2.66-3 5.48-3 5.85 0 6.92 3.84 6.92 8.83V21h-6v-6.12c0-1.46-.03-3.34-2.03-3.34-2.03 0-2.34 1.58-2.34 3.21V21h-6V9z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/LionelDJ24" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.44 7.86 10.97.58.11.79-.25.79-.55v-2.1c-3.2.69-3.88-1.38-3.88-1.38-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.18.08 1.8 1.21 1.8 1.21 1.04 1.79 2.73 1.27 3.4.97.11-.76.41-1.27.74-1.56-2.56-.29-5.25-1.28-5.25-5.72 0-1.26.45-2.3 1.19-3.12-.12-.29-.52-1.44.11-3 0 0 .97-.31 3.2 1.18a11.16 11.16 0 012.92-.39c.99 0 1.98.13 2.92.39 2.23-1.49 3.2-1.18 3.2-1.18.63 1.56.23 2.71.11 3 .74.82 1.19 1.86 1.19 3.12 0 4.44-2.7 5.43-5.27 5.71.42.36.8 1.08.8 2.18v3.24c0 .3.21.66.8.55A10.52 10.52 0 0023.5 12c0-6.27-5.23-11.5-11.5-11.5z"/>
+            </svg>
+          </a>
         </div>
       </div>
     </footer>
@@ -68,6 +91,15 @@
         <path d="M12 19V5M5 12l7-7 7 7"/>
       </svg>
     </button>
+
+    <!-- BANNIÈRE DE CONSENTEMENT (mesure d'audience) -->
+    <div class="cookie-banner" id="cookie-banner" hidden>
+      <p>Ce site utilise Google Analytics pour mesurer son audience. Acceptez-vous le dépôt de cookies de mesure d'audience&nbsp;?</p>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-accept" id="cookie-accept">Accepter</button>
+        <button class="cookie-btn cookie-refuse" id="cookie-refuse">Refuser</button>
+      </div>
+    </div>
 
     <style>
       /* RESET & BASE */
@@ -114,46 +146,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-      }
-
-      /* LOGO */
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-decoration: none;
-        transition: transform 0.3s ease;
-      }
-
-      .logo:hover {
-        transform: scale(1.05);
-      }
-
-      .logo-icon {
-        width: 45px;
-        height: 45px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        font-weight: 700;
-        font-size: 1.2rem;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-      }
-
-      .logo-text {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: #1f2937;
-        display: none;
-      }
-
-      @media (min-width: 768px) {
-        .logo-text {
-          display: block;
-        }
       }
 
       /* NAV MENU */
@@ -248,6 +240,7 @@
           box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
           transition: right 0.4s ease;
           align-items: stretch;
+          overflow-y: auto;
         }
 
         .nav-menu.active {
@@ -294,15 +287,17 @@
       }
 
       .footer-links a {
-        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.8);
         text-decoration: none;
         transition: all 0.3s ease;
-        filter: grayscale(0.3);
       }
 
       .footer-links a:hover {
-        transform: translateY(-5px) scale(1.2);
-        filter: grayscale(0);
+        color: #a5b4fc;
+        transform: translateY(-5px) scale(1.15);
       }
 
       /* SCROLL TO TOP */
@@ -337,6 +332,57 @@
         box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
       }
 
+      /* COOKIE BANNER */
+      .cookie-banner {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1100;
+        max-width: 340px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+        padding: 20px;
+      }
+
+      .cookie-banner p {
+        font-size: 0.92rem;
+        color: #374151;
+        line-height: 1.5;
+        margin-bottom: 14px;
+      }
+
+      .cookie-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .cookie-btn {
+        flex: 1;
+        padding: 9px 0;
+        border: none;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 0.92rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+      }
+
+      .cookie-btn:hover {
+        opacity: 0.85;
+      }
+
+      .cookie-accept {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .cookie-refuse {
+        background: #eef2f7;
+        color: #374151;
+      }
+
       @media (max-width: 768px) {
         .scroll-top {
           bottom: 20px;
@@ -347,6 +393,13 @@
 
         .footer {
           padding: 30px 5%;
+        }
+
+        .cookie-banner {
+          left: 10px;
+          right: 10px;
+          bottom: 10px;
+          max-width: none;
         }
       }
     </style>
@@ -375,26 +428,77 @@
       const menuToggle = document.getElementById('menu-toggle');
       const navMenu = document.getElementById('nav-menu');
 
+      function closeMenu() {
+        menuToggle?.classList.remove('active');
+        navMenu?.classList.remove('active');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+      }
+
       menuToggle?.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
+        const open = menuToggle.classList.toggle('active');
         navMenu?.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', String(open));
       });
 
       // CLOSE MENU ON LINK CLICK
       const navLinks = document.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          menuToggle?.classList.remove('active');
-          navMenu?.classList.remove('active');
-        });
+        link.addEventListener('click', closeMenu);
       });
 
       // CLOSE MENU ON OUTSIDE CLICK
       document.addEventListener('click', (e) => {
         if (!navMenu?.contains(e.target as Node) && !menuToggle?.contains(e.target as Node)) {
-          menuToggle?.classList.remove('active');
-          navMenu?.classList.remove('active');
+          closeMenu();
         }
+      });
+
+      // GOOGLE ANALYTICS — chargé uniquement après consentement (RGPD / CNIL)
+      const GA_ID = 'G-2EKM6TVR03';
+      const banner = document.getElementById('cookie-banner');
+      const acceptBtn = document.getElementById('cookie-accept');
+      const refuseBtn = document.getElementById('cookie-refuse');
+
+      function loadAnalytics() {
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(s);
+        const w = window as any;
+        w.dataLayer = w.dataLayer || [];
+        function gtag() {
+          w.dataLayer.push(arguments);
+        }
+        // @ts-ignore
+        gtag('js', new Date());
+        // @ts-ignore
+        gtag('config', GA_ID, { anonymize_ip: true });
+      }
+
+      let consent: string | null = null;
+      try {
+        consent = localStorage.getItem('ga-consent');
+      } catch {}
+
+      if (consent === 'granted') {
+        loadAnalytics();
+      } else if (consent === null && banner) {
+        banner.hidden = false;
+      }
+
+      acceptBtn?.addEventListener('click', () => {
+        try {
+          localStorage.setItem('ga-consent', 'granted');
+        } catch {}
+        if (banner) banner.hidden = true;
+        loadAnalytics();
+      });
+
+      refuseBtn?.addEventListener('click', () => {
+        try {
+          localStorage.setItem('ga-consent', 'denied');
+        } catch {}
+        if (banner) banner.hidden = true;
       });
     </script>
   </body>

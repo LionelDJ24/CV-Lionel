@@ -14,7 +14,7 @@
       <div class="subtitle-wrapper">
         <p class="subtitle">Élève-ingénieur en cybersécurité – ESAIP · Erasmus à Madrid</p>
         <p class="description">Je recherche un <span class="highlight">stage de fin d'études de 6 mois à partir d'avril 2027</span> en coordination de projets cybersécurité ou en gouvernance de la sécurité (GRC), à l'interface entre équipes techniques et organisation.</p>
-        <p class="description">Également disponible pour un <span class="highlight">stage de 2 mois à l'étranger dès fin janvier 2027</span>.</p>
+        <p class="description">Stage de 2 mois confirmé à l'<span class="highlight">Université de Žilina (Slovaquie)</span>, du 27 janvier au 29 mars 2027 : analyse défensive de techniques d'attaque sur postes Windows.</p>
       </div>
       <div class="tags">
         <span class="tag">Cybersécurité</span>
@@ -51,7 +51,7 @@
     justify-content: center;
     align-items: center;
     padding: 80px 10%;
-    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    background: linear-gradient(135deg, #0f0c29 0%, #231f4a 50%, #1c1b33 100%);
     overflow: hidden;
   }
 
@@ -69,7 +69,7 @@
   .circle {
     position: absolute;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(102, 126, 234, 0.4) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.16) 0%, transparent 70%);
     animation: float 20s infinite ease-in-out;
   }
 
@@ -87,7 +87,7 @@
     top: 60%;
     right: 15%;
     animation-delay: 5s;
-    background: radial-gradient(circle, rgba(245, 87, 108, 0.3) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(118, 75, 162, 0.18) 0%, transparent 70%);
   }
 
   .circle-3 {
@@ -96,7 +96,7 @@
     bottom: 10%;
     left: 50%;
     animation-delay: 10s;
-    background: radial-gradient(circle, rgba(0, 242, 254, 0.3) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.12) 0%, transparent 70%);
   }
 
   @keyframes float {
@@ -121,6 +121,7 @@
     text-align: center;
     max-width: 900px;
     width: 100%;
+    padding-bottom: 130px;
   }
 
   .hero-text {
@@ -147,27 +148,9 @@
     position: relative;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: 
-      0 0 10px rgba(102, 126, 234, 0.8),
-      0 0 20px rgba(102, 126, 234, 0.6),
-      0 0 40px rgba(102, 126, 234, 0.4);
-    animation: glow 2s ease-in-out infinite;
+    text-shadow: 0 0 24px rgba(102, 126, 234, 0.35);
   }
 
-  @keyframes glow {
-    0%, 100% {
-      text-shadow: 
-        0 0 10px rgba(102, 126, 234, 0.8),
-        0 0 20px rgba(102, 126, 234, 0.6),
-        0 0 40px rgba(102, 126, 234, 0.4);
-    }
-    50% {
-      text-shadow: 
-        0 0 20px rgba(102, 126, 234, 1),
-        0 0 40px rgba(102, 126, 234, 0.8),
-        0 0 60px rgba(102, 126, 234, 0.6);
-    }
-  }
 
   /* SUBTITLE */
   .subtitle-wrapper {
@@ -193,10 +176,7 @@
   }
 
   .highlight {
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #a5b4fc;
     font-weight: 600;
   }
 
@@ -211,9 +191,9 @@
   }
 
   .tag {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     color: #fff;
     padding: 10px 20px;
     border-radius: 25px;
@@ -226,7 +206,7 @@
     background: rgba(102, 126, 234, 0.3);
     border-color: rgba(102, 126, 234, 0.5);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.22);
   }
 
   /* CTA BUTTONS */
@@ -258,7 +238,7 @@
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
     transform: translate(-50%, -50%);
     transition: width 0.5s, height 0.5s;
   }
@@ -272,24 +252,24 @@
     background: var(--primary-gradient);
     color: white;
     border: none;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.22);
   }
 
   .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+    box-shadow: 0 10px 28px rgba(102, 126, 234, 0.32);
   }
 
   .btn-secondary {
     background: transparent;
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.28);
     backdrop-filter: blur(10px);
   }
 
   .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.45);
     transform: translateY(-3px);
   }
 
@@ -301,7 +281,7 @@
    /* SCROLL INDICATOR */
   .scroll-indicator {
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
